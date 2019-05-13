@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   
   // Download button click-handler
-  document.querySelector('.action-buttons > .btn-primary').addEventListener('click', (event) => {
+  document.querySelector('.action-buttons > .downloadButton').addEventListener('click', (event) => {
     
     document.querySelector('body').classList.add('overlay'); // adds blur
     

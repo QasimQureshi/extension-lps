@@ -16,6 +16,10 @@
   display: none;
 }
 
+body {
+  background-color: #7f7f7f !important;
+}
+
 .arrow > span {
   font-size: 12px;
   margin-top: 10px;
@@ -39,6 +43,7 @@ body > main > .card {
   transition: 0.2s linear filter;
   filter: blur(0px);
   z-index: 10;
+  width: 782px;
 }
 
 
@@ -80,4 +85,17 @@ body:not(.overlay) > div.overlay {
 /*  position: absolute;*/
   left: -200px;
   top: -15px;
+}
+
+.downloadButton {
+  background-image: url(../images/button.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 259px;
+  height: 110px;
+  overflow: hidden; 
+}
+
+.downloadButton:hover {
+  background-position: 0 -110px;
 }
