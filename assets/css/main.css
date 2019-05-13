@@ -1,0 +1,83 @@
+/* Pointer arrow */
+.arrow {
+  background-image: url(../images/assist_21.gif);
+  width: 285px;
+  height: 196px;
+  position: fixed;
+  left: 725px;
+  top: 172.5px;
+  z-index: 1;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Open Sans", arial, sans-serif;
+  font-size: 25px;
+  padding: 55px 0px 0px 139px;
+  z-index: 0;
+  display: none;
+}
+
+.arrow > span {
+  font-size: 12px;
+  margin-top: 10px;
+  display: block;
+  line-height: 20px;
+}
+
+/* Blurred overlay, shows when the Download button is clicked */
+div.overlay {
+  position: absolute;
+  background-color: black;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s linear opacity;
+}
+
+body > main > .card {
+  transition: 0.2s linear filter;
+  filter: blur(0px);
+  z-index: 10;
+}
+
+
+/* overlay visible */
+body.overlay > div.overlay {
+  z-index: 10;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+body.overlay > main > .card {
+  filter: blur(10px);
+  z-index: 0;
+}
+
+body.overlay > .arrow {
+  display: block;
+  z-index: 20;
+}
+
+/* overlay not visible */
+body:not(.overlay) > div.overlay {
+  z-index: 0;
+}
+
+
+
+.card {
+    position: absolute !important;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.card .action-buttons {
+  position: relative;
+}
+
+.card .action-buttons > img {
+/*  position: absolute;*/
+  left: -200px;
+  top: -15px;
+}
