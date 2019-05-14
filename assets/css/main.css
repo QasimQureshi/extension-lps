@@ -105,7 +105,14 @@ body.overlay.cancel-confirmation .cancel-confirmation-card {
 }
 
 .cancel-confirmation-card > .card-body > .action-buttons {
-  
+  text-align: right;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.cancel-confirmation-card > .card-body > .action-buttons > input {
+  width: 80px;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 
 /* overlay not visible */
