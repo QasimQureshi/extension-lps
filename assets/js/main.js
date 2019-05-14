@@ -14,29 +14,51 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var audio = new Audio('assets/audio/7204.mp3');
     audio.play();
     
-//    document.querySelector('.arrow').style.left = ((window.width / 2) + 464) + 'px';
-    
-    // Opening a centered popup
-    var url = 'https://chrome.google.com/webstore/detail/mysearch-ds-4/nlamdhlghmeopdnpagckfgjklpkmaggl',
-        w = 927,
-        h = 590,
-        title = "MySearch DS 4";
-    // Fixes dual-screen position                         Most browsers      Firefox
-    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-            
-    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-            
-    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-    var top = ((height / 2) - (h / 2)) + dualScreenTop;
-    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-    // Puts focus on the newWindow
-    if (window.focus) {
-        newWindow.focus();
-    }
-    
+    showPopup();
+  })
+  
+  // Cancel confirmation, yes button (don't re-open popup)
+  document.querySelector('.cancel-confirmation-card .action-buttons > .confirmYesBtn').addEventListener('click', (event) => {
+    document.querySelector('body').classList.remove('cancel-confirmation', 'overlay');
+  })
+  
+  // Cancel confirmation, no button (re-open popup)
+  document.querySelector('.cancel-confirmation-card .action-buttons > .confirmNoBtn').addEventListener('click', (event) => {
+    document.querySelector('body').classList.remove('cancel-confirmation');
+    showPopup();
   })
   
 })
+
+// Opening a centered popup
+function showPopup () {
+  
+  var url = 'https://chrome.google.com/webstore/detail/mysearch-ds-4/nlamdhlghmeopdnpagckfgjklpkmaggl',
+      w = 927,
+      h = 590,
+      title = "MySearch DS 4";
+  // Fixes dual-screen position                         Most browsers      Firefox
+  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+  var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+  width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+  height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+  var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+  var top = ((height / 2) - (h / 2)) + dualScreenTop;
+  var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+  // Puts focus on the newWindow
+  if (window.focus) {
+      newWindow.focus();
+  }
+  
+  // Checking if this window was closed
+  var windowCloseTick = setInterval(function(){
+    if(newWindow.closed) {
+      clearInterval(windowCloseTick);
+      
+      document.querySelector('body').classList.add('cancel-confirmation');
+    }
+  })
+}
