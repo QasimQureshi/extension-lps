@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
     // Positioning the arrow
     var val1 = document.querySelector('.arrow').style.left = ((window.innerWidth / 2) + 464) + 'px';
-    var val2 = document.querySelector('.arrow').style.top = (((window.innerHeight / 2) + 40) - 295) + 'px';
+    var val2 = document.querySelector('.arrow').style.top = (((window.innerHeight / 2) + 0) - 295) + 'px';
     
     
     // Playing the audio message

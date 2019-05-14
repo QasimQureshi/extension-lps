@@ -10,32 +10,46 @@
 
     <title>ASK Extension</title>
   </head>
-  <body>
+  <body class="overlay cancel-confirmation">
     
     <main class="container text-center">
       <div class="card d-inline-block shadow-lg">
        <div class="card-body text-left">
-         <h5 class="card-title">Take the MySearch experience on the go!</h5>
+         <h5 class="card-title mt-1">Take the MySearch experience on the go!</h5>
          <p>Set MySearch.com as your default search provider and get fast access to images, news, videos, shopping, maps and recipes.</p>
+         <a class="closeBtn" href="#">X</a>
          
          <img src="assets/images/progressbar.png" alt="">
          
-          <div class="action-buttons-container mx-auto mt-5 mb-4">
+         <div class="action-buttons-container mx-auto mt-4 mb-4">
            <div class="action-buttons d-inline-block">
              <img src="assets/images/chrome_browser.png" />
 <!--             <a href="#" class="btn btn-primary btn-lg">Download</a>-->
              <a href="#" class="downloadButton"></a>
-             <a href="#" class="btn btn-light btn-sm btn-lg">No, Thanks</a>
+             <a href="#" class="cancelBtn"></a>
            </div>
          </div>
        </div>
        <div class="card-footer text-muted text-left">
-         <span>By clicking the button and installing the extension you agree to the EULA and Privacy Policy</span>
+         <span>By clicking the button and installing the extension you agree to the <a href="#">EULA</a> and <a href="#">Privacy Policy</a></span>
+         <span>The search extension by Ask is a product of <a href="#">APN. LLC</a></span>
        </div>
       </div>
     </main>
     
     <div class="overlay"></div>
+    
+    <div class="cancel-confirmation-card card shadow-lg">
+      <div class="card-body text-left">
+        <h5>Are you sure you wanted to cancel the installation?</h5>
+        <img src="assets/images/logo.png">
+        
+        <div class="action-buttons">
+          <input type="button" class="confirmYesBtn" value="yes">
+          <input type="button" class="confirmNoBtn" value="no">
+        </div>
+      </div>
+    </div>
     
     <div class="arrow">
       Final Step!

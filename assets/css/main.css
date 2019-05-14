@@ -43,7 +43,7 @@ body > main > .card {
   transition: 0.2s linear filter;
   filter: blur(0px);
   z-index: 10;
-  width: 782px;
+  width: 720px;
 }
 
 
@@ -64,17 +64,68 @@ body.overlay > .arrow {
   z-index: 20;
 }
 
+
+.cancel-confirmation-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 50;
+  background-color: #eee !important;
+}
+
+
+body:not(.cancel-confirmation) .cancel-confirmation-card {
+  display: none;
+}
+
+body.overlay.cancel-confirmation .arrow {
+  display: none;
+}
+
+body.overlay.cancel-confirmation .cancel-confirmation-card {
+  display: block;
+}
+
+.cancel-confirmation-card > .card-body > h5 {
+  font-size: 1em;
+  font-weight: 500;
+  color: #0F4ABD;
+  padding: 20px;
+  width: 70%;
+  display: inline-block;
+}
+
+.cancel-confirmation-card > .card-body > img {
+  display: inline-block;
+  width: 90px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.cancel-confirmation-card > .card-body > .action-buttons {
+  
+}
+
 /* overlay not visible */
 body:not(.overlay) > div.overlay {
   z-index: 0;
 }
 
-
-
 .card {
-    position: absolute !important;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  position: absolute !important;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.card-body > h5 {
+  font-weight: 600;
+  font-size: 1.15em;
+}
+
+.card-body > h5 + p {
+  font-size: 0.9em;
 }
 
 .card .action-buttons {
@@ -82,9 +133,15 @@ body:not(.overlay) > div.overlay {
 }
 
 .card .action-buttons > img {
-/*  position: absolute;*/
-  left: -200px;
-  top: -15px;
+  position: relative;
+/*  left: -200px;*/
+  top: -35px;
+}
+
+.card .action-buttons > .cancelBtn {
+  position: relative;
+  top: -35px;
+  margin-left: 15px;
 }
 
 .downloadButton {
@@ -98,4 +155,46 @@ body:not(.overlay) > div.overlay {
 
 .downloadButton:hover {
   background-position: 0 -110px;
+}
+
+.cancelBtn {
+  background-image: url(../images/cancelBtn.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 105px;
+  height: 22px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: gray;
+  font-weight: bold;
+  background-color: #ffffff00;
+  border-radius: 3px;
+  padding: 0px 5px; 
+}
+
+.closeBtn:hover {
+  background-color: #ccc;
+  text-decoration: none;
+  color: gray;
+}
+
+.card-footer > span {
+  font-size: 0.8em;
+  display: inline-block;
+/*  padding: 0 5px;*/
+/*  width: 40%;*/
+}
+
+
+.card-footer > span:first-of-type {
+  width: 60%;
+}
+
+.card-footer > span:last-of-type {
+  width: 39%;
+  font-size: 0.75em;
 }
