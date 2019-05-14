@@ -115,6 +115,10 @@ body.overlay.cancel-confirmation .cancel-confirmation-card {
   margin-left: 10px;
 }
 
+.cancel-confirmation-card > .card-body > .action-buttons > input:focus {
+  outline: 0;
+}
+
 /* overlay not visible */
 body:not(.overlay) > div.overlay {
   z-index: 0;
@@ -187,6 +191,16 @@ body:not(.overlay) > div.overlay {
   background-color: #ccc;
   text-decoration: none;
   color: gray;
+}
+
+.card-footer {
+  background-color: #fff !important;
+  border-top: 0 !important;
+}
+
+.card-footer a{
+  color: black;
+  text-decoration: underline;
 }
 
 .card-footer > span {
