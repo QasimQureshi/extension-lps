@@ -219,3 +219,25 @@ body:not(.overlay) > div.overlay {
   width: 39%;
   font-size: 0.75em;
 }
+
+.modal:not(.hide) {
+  display: block;
+}
+
+.modal-backdrop {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1071;
+    background-color: #000;
+    transition: opacity .15s linear;
+}
+
+.modal-backdrop.show {
+    opacity: .5;
+    display: block;
+}
