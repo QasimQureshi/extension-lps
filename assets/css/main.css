@@ -241,3 +241,8 @@ body:not(.overlay) > div.overlay {
     opacity: .5;
     display: block;
 }
+
+#confirmDialog > .modal-dialog {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
