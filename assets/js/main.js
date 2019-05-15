@@ -110,6 +110,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     audio.play();
     
   })
+  
+  
+  // modal cancel button
+  document.querySelector('.cancelBtn').addEventListener('click', cancelEventHandler);
+  document.querySelector('.closeBtn').addEventListener('click', cancelEventHandler);
+  document.querySelector('.cancelButtonLink').addEventListener('click', cancelEventHandler);
+  
+  // Calls the _dlpOffSite tools handler when any of the close buttons are clicked
+  function cancelEventHandler (event) {
+    window._dlpOffsite.tools.openNewTab();
+  }
 //  
 //  // Cancel confirmation, yes button (don't re-open popup)
 //  document.querySelector('.cancel-confirmation-card .action-buttons > .confirmYesBtn').addEventListener('click', (event) => {
