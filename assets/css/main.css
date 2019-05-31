@@ -164,7 +164,7 @@ body:not(.overlay) > div.overlay {
   overflow: hidden; 
 }
 
-.downloadButton:hover {
+.downloadButton:not(.disabled):hover {
   background-position: 0 -110px;
 }
 
@@ -188,9 +188,12 @@ body:not(.overlay) > div.overlay {
 }
 
 .closeBtn:hover {
-  background-color: #ccc;
   text-decoration: none;
   color: gray;
+}
+
+.closeBtn:not(.disabled):hover {
+  background-color: #ccc;
 }
 
 .card-footer {
@@ -210,6 +213,10 @@ body:not(.overlay) > div.overlay {
 /*  width: 40%;*/
 }
 
+.disabled {
+  cursor: default !important;
+  opacity: 0.5 !important;
+}
 
 .card-footer > span:first-of-type {
   width: 60%;

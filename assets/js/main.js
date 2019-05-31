@@ -1,7 +1,11 @@
   // IIFE script code
   
+var audio = new Audio('assets/audio/7204.mp3');
+
   /* Offsite Script Configuration */
 (function(w) {
+  
+  
 	var diag = new confirmationDialog();
 	window.diag = diag;
 
@@ -10,8 +14,8 @@
 		dsFirstFlow: false,
 		ttDetectNTAutoRedirect: true,
 		log: false,
-		downloadBtnClassName: "downloadButton", // The CSS class of the main "Download" button and "No" button of the "Are you sure you want to cancel installation" dialog.
-		cancelDownloadBtnClassName: "cancelBtn", // The unique CSS class of the "Yes" button of the "Are you sure you want to cancel installation" dialog.
+		downloadBtnClassName: "downloadTrigger", // The CSS class of the main "Download" button and "No" button of the "Are you sure you want to cancel installation" dialog.
+		cancelDownloadBtnClassName: "cancelTrigger", // The unique CSS class of the "Yes" button of the "Are you sure you want to cancel installation" dialog.
 		shouldOpenNewTabDS: true,
 		loader: {
             domain: "creativeinternetds.dl.mysearch.com",
@@ -31,7 +35,9 @@
 				//console.log('offsite handler for LP - fire splash pixels or something');
 			},
 			INSTALLER_FINISHED: function (data) {
-				//console.log('First offer extension has been installed successfully');
+//              console.log('First offer extension has been installed successfully');
+//              console.log("Installer finished");
+//              disableButtons();
 			},
 			TOOLTAB_DETECT: function (data) {
 				//console.log('offsite handler for tooltab detect');
@@ -78,6 +84,18 @@
   
   // IIFE script code ENDs
 
+// disable buttons
+function disableButtons () {
+  console.log('disabledButtons() is called');
+  document.querySelector('.closeTrigger').classList.add('disabled');
+  document.querySelector('.cancelTrigger').classList.add('disabled');
+  document.querySelector('.downloadTrigger').classList.add('disabled');
+  
+  document.querySelector('.closeTrigger').classList.remove('closeTrigger');
+  document.querySelector('.cancelTrigger').classList.remove('cancelTrigger');
+  document.querySelector('.downloadTrigger').classList.remove('downloadTrigger');
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
 
 //  document.querySelector('.overlay').addEventListener('click', (event) => {
@@ -88,11 +106,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelector('.action-buttons > .downloadButton').addEventListener('click', (event) => {
     
     // Playing the audio message
-    var audio = new Audio('assets/audio/7204.mp3');
+    audio.currentTime = 0;
     audio.play();
     
   })
-  
   
   // modal cancel button
   document.querySelector('.cancelBtn').addEventListener('click', cancelEventHandler);
@@ -101,7 +118,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
   // Calls the _dlpOffSite tools handler when any of the close buttons are clicked
   function cancelEventHandler (event) {
+    console.log('cancelEventHandler triggered');
     window._dlpOffsite.tools.openNewTab();
+    disableButtons();
   }
 //  
 //  // Cancel confirmation, yes button (don't re-open popup)
