@@ -40,7 +40,8 @@ var audio = new Audio('assets/audio/7204.mp3');
 //              disableButtons();
 			},
 			TOOLTAB_DETECT: function (data) {
-				//console.log('offsite handler for tooltab detect');
+              
+				console.log('offsite handler for tooltab detect', data.present);
 				if (data.present) {
 					console.log('Extension already installed - redirect to success page');
 					window.location = data.newTabURL;
